@@ -54,9 +54,9 @@
                   <Label text="Category" GridPane.rowIndex="2" />
                   <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#saveAction" prefHeight="25.0" prefWidth="52.0" text="Save" />
-                        <Button mnemonicParsing="false" onAction="#resetAction" prefHeight="25.0" prefWidth="53.0" text="Reset" />
-                        <Button disable="true" mnemonicParsing="false" onAction="#updateAction" prefHeight="25.0" prefWidth="62.0" text="Update">
+                        <Button fx:id="btnSave" mnemonicParsing="false" onAction="#saveAction" prefHeight="25.0" prefWidth="52.0" text="Save" />
+                        <Button fx:id="btnReset" mnemonicParsing="false" onAction="#resetAction" prefHeight="25.0" prefWidth="53.0" text="Reset" />
+                        <Button fx:id="btnUpdate" disable="true" mnemonicParsing="false" onAction="#updateAction" prefHeight="25.0" prefWidth="62.0" text="Update">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
@@ -71,18 +71,13 @@
                   <TextField fx:id="txtName" GridPane.columnIndex="1" />
                   <TextField fx:id="txtPrice" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <TextField fx:id="txtCategoryName" GridPane.columnIndex="3" />
-                  <MenuButton fx:id="menuCategory" mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                    <items>
-                      <MenuItem mnemonicParsing="false" text="Action 1" />
-                      <MenuItem mnemonicParsing="false" text="Action 2" />
-                    </items>
-                  </MenuButton>
+                  <ComboBox fx:id="comboboxCategory" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                </children>
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </GridPane>
-            <TableView prefHeight="200.0" prefWidth="200.0" tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
+            <TableView fx:id="tableToko" onMouseClicked="#tableClicked" prefHeight="200.0" prefWidth="200.0" tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
               <columns>
                 <TableColumn fx:id="co01" prefWidth="211.0" text="Name" />
                 <TableColumn fx:id="co02" prefWidth="187.0" text="Price" />

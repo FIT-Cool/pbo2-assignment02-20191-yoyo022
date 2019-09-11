@@ -1,6 +1,6 @@
 package com.yosef.entity;
 
-public class Item extends Category{
+public class Item{
     private String name;
     private double price;
     private Category category;

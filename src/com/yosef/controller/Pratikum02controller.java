@@ -38,8 +38,7 @@ public class Pratikum02controller implements Initializable {
     private Button btnReset;
     @FXML
     private Button btnUpdate;
-
-    Item t = new Item();
+    private Item item ;
     private ObservableList<Item> items;
     private ObservableList<Category> categories;
 
@@ -55,12 +54,10 @@ public class Pratikum02controller implements Initializable {
 
     public void updateAction(ActionEvent actionEvent) {
         btnUpdate.setDisable( true );
-        t.setName( txtName.getText().trim() );
-        t.setPrice( Double.parseDouble( txtPrice.getText().trim() ) );
-        t.setCategory( comboboxCategory.getValue() );
-        t.setName( txtName.getText().trim() );
-        t.setPrice( Double.parseDouble( txtPrice.getText().trim() ) );
-        t.setCategory( comboboxCategory.getValue() );
+        item.setName( txtName.getText().trim() );
+        item.setPrice( Double.parseDouble( txtPrice.getText().trim() ) );
+        item.setCategory( comboboxCategory.getValue() );
+
         tableToko.refresh();
     }
 
@@ -88,12 +85,16 @@ public class Pratikum02controller implements Initializable {
     }
 
     public void saveAction(ActionEvent actionEvent) {
-
+        Item t = new Item();
         if(txtName.getText().isEmpty() || txtPrice.getText().isEmpty() || comboboxCategory.getValue()==null){
             alert.setTitle( "ERROR" );
             alert.setContentText( "Please fill name/price/category" );
             alert.showAndWait();
-        }else {
+        }
+        else {
+//            for (Category i:categories){
+//
+//            }
             t.setName( txtName.getText().trim() );
             t.setPrice( Double.parseDouble( txtPrice.getText().trim() ) );
             t.setCategory( comboboxCategory.getValue() );
@@ -104,7 +105,7 @@ public class Pratikum02controller implements Initializable {
     @FXML
     private void tableClicked(MouseEvent mouseEvent) {
         btnUpdate.setDisable( false );
-        Item item = tableToko.getSelectionModel().getSelectedItem();
+        item = tableToko.getSelectionModel().getSelectedItem(); //ambil yang di select item nya 
         txtName.setText(item.getName());
         txtPrice.setText( String.valueOf(item.getPrice()));
         comboboxCategory.setValue(item.getCategory());
